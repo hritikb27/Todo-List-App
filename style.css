@@ -22,12 +22,17 @@ li{
 
 .side-wrapper{
     display: flex;
-    flex-direction: column;
     position: relative;
+    gap: 100px;
     height: 100%;
-    width: 15%;
-    background-color: plum;
+    width: 100%;
     margin: 0;
+}
+
+.side-wrapper .side-sections{
+    width: 16%;
+    height: 100%;
+    background-color: plum;
 }
 
 .side-wrapper h2{
@@ -39,12 +44,4 @@ li{
     padding: 15px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid rgba(225,225,225,0.05);
-}
-
-main{
-    display: flex;
-    width: 50%;
-    justify-content: end;
-    align-items: center;
-    margin: auto;
 }
