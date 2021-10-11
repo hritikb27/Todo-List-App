@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+h1{
+    color:snow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 8%;
+    background-color: purple;
+}
+
+li{
+    list-style-type: none;
+    font-weight: lighter;
+    font-size: larger;
+}
+
+.side-wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 15%;
+    background-color: plum;
+    margin: 0;
+}
+
+.side-wrapper h2{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.side-sections ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(225,225,225,0.05);
+}
+
+main{
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    align-items: center;
+    margin: auto;
+}
