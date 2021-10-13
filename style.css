@@ -45,3 +45,24 @@ li{
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid rgba(225,225,225,0.05);
 }
+
+.add-proj{
+    display: none;
+}
+.add-todo{
+    display: none;
+}
+
+.hide-todo{
+    display: none;
+}
+
+.display-todo{
+    display: block;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.onclick-projects{
+    cursor: pointer;
+}

@@ -1,24 +1,62 @@
-import createTodo from "./createTodo.js";
+import createProject from "./createProject.js";
 import removeTodo from "./removeToDo.js";
+import displayProjects from "./displayProject.js";
+import { createTodos, storeTodos } from "./createTodos.js";
+import addProjectButton from "./domModule.js";
 
+const displayAllProjects = document.querySelector('#all-projects');
+const mainDisplay = document.querySelector('#main-display');
 
-const newTodo = new createTodo('Water Plants', 'First time making todo', '28/09', false, 'important');
-
-function storeToDO(oldProjectName, newProjectName){
-    const Todos= getTodoList(oldProjectName);
-    Todos.push(newTodo)
-    localStorage.setItem(newProjectName, JSON.stringify(Todos));
+function createTod() {
+    storeToDO('CreateTodo', storeData);
 }
 
-function getTodoList(oldProjectName){
-    const getTodos= JSON.parse(localStorage.getItem(oldProjectName))
-    if(getTodos==null){
-        return [];
-    }else{
+// function storeToDO(oldProjectName){
+//     const Todos= getTodoList(oldProjectName);
+//     return
+// }
+
+function getTodoList() {
+    const getTodos = JSON.parse(localStorage.getItem('Todo'))
     return getTodos;
-    }
 }
 
-function removeTodos(){
+function displayProject() {
+    const renderDisplay = displayProjects(getTodoList('Todo'));
+
+}
+
+function removeTodos() {
     removeTodo('CreateTodo', 0, 'Water Plants')
 }
+
+displayAllProjects.addEventListener('click', () => {
+    displayProject();
+
+    const onclickProjects = document.querySelector('.onclick-projects');
+
+    onclickProjects.addEventListener('click', (e) => {
+        console.log('click')
+        e.stopPropagation();
+        if (document.getElementById('project-title')) {
+            const projectTitle = document.getElementById('project-title');
+            projectTitle.remove();
+        }
+        const projectTitle = document.createElement('h2');
+        projectTitle.setAttribute('id', 'project-title');
+        projectTitle.textContent = e.target.textContent;
+        mainDisplay.insertBefore(projectTitle, mainDisplay.firstChild)
+        const projectName = e.target.textContent.replace(/\W+/g, '-').toLowerCase();
+        const getProjectDiv = document.getElementsByClassName(projectName);
+        for (let i = 0; i < getProjectDiv.length; i++) {
+            getProjectDiv[i].classList.add('display-todo')
+        }
+    })
+});
+
+
+const projectsUL = document.querySelector('.projects-ul');
+
+addProjectButton();
+
+export { getTodoList };

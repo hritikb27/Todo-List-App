@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>TodoList App</title>
 </head>
+
 <body>
 
     <h1>Todo List App</h1>
@@ -17,20 +19,48 @@
             <ul>
                 <li>Today</li>
                 <li>Next 7 Days</li>
-                <li>Important</li>
-                <li>Projects</li>
+                <li>Urgent Tasks Todo</li>
+                <li id="all-projects">All Projects</li>
             </ul>
         </div>
 
         <main>
-            <div>
-                'Hello'
+            <div id="main-display">
+                <button id="add-proj-btn">Add Project</button>
+                <div class="add-proj">
+                    <input type="text" id="proj-name">
+                    <button id="proj-add">Add</button>
+                </div>
+                <button id="add-todo-btn">Add Todo</button>
+                <div class="add-todo">
+                    <form>
+                        <label>Name</label>
+                        <input type="text" id="todo-name">
+                        <label>Description</label>
+                        <input type="text" id="todo-desc">
+                        <label>Due Date</label>
+                        <input type="date" id="todo-date">
+                        <label>Priority:</label>
+                        <select id="todo-priority">
+                            <option value="1">Important</option>
+                            <option value="2">Very Important</option>
+                            <option value="3">Urgent!</option>
+                        </select>
+                        <button id="todo-add">Add</button>
+                    </form>
+                </div>
+                <div id="dom-display">
+
+                </div>
             </div>
         </main>
     </section>
-    
+
 </body>
-<script type="module" src="project.js"></script>
-<script type="module" src="createTodo.js"></script>
+<script type="module" src="displayProject.js"></script>
+<script type="module" src="displayTodo.js"></script>
+<script type="module" src="createProject.js"></script>
 <script type="module" src="index.js" defer></script>
+<script type="module" src="domModule.js"></script>
+
 </html>
