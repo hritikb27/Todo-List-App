@@ -1,15 +1,22 @@
 import createProject from "./createProject.js";
 import removeTodo from "./removeToDo.js";
 import displayProjects from "./displayProject.js";
-import { createTodos, storeTodos } from "./createTodos.js";
+import { createTodoList, storeTodos } from "./createTodos.js";
 import addProjectButton from "./domModule.js";
 
 const displayAllProjects = document.querySelector('#all-projects');
 const mainDisplay = document.querySelector('#main-display');
 
 function createTod() {
-    storeToDO('CreateTodo', storeData);
+    const projArray = [];
+    const project1 = createProject('Project 1');
+    const todo1 = createTodoList('Todo 1', 'This is Todo 1!', '28/10/2021', false, '1');
+
+    const firstProject= storeTodos(project1, todo1);
+    projArray.push(firstProject)
+    localStorage.setItem('Todo', JSON.stringify(projArray))
 }
+
 
 // function storeToDO(oldProjectName){
 //     const Todos= getTodoList(oldProjectName);
@@ -58,5 +65,10 @@ displayAllProjects.addEventListener('click', () => {
 const projectsUL = document.querySelector('.projects-ul');
 
 addProjectButton();
+
+if(getTodoList==null){
+    createTod();
+}
+
 
 export { getTodoList };

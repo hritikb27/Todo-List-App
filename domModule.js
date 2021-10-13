@@ -1,6 +1,6 @@
 import createProject from "./createProject.js";
 import createTodo from "./createProject.js";
-import {createTodos, storeTodos} from "./createTodos.js";
+import {createTodoList, storeTodos} from "./createTodos.js";
 import { getTodoList } from "./index.js";
 
 function addProjectButton(){
@@ -35,7 +35,7 @@ function addProjectButton(){
 
     todoAddBtn.addEventListener('click', (e)=>{
         e.preventDefault();
-        const newTodo = new createTodos(getTodoName.value, getTodoDesc.value, getTodoDate.value, false, getTodoPriority.value);
+        const newTodo = new createTodoList(getTodoName.value, getTodoDesc.value, getTodoDate.value, false, getTodoPriority.value);
         const todoList = getTodoList();
         todoList.forEach(project=>{
             const projectTitle = document.getElementById('project-title');
