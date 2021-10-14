@@ -1,9 +1,22 @@
-function removeTodo(name, num, todoName){
-    const getData = JSON.parse(localStorage.getItem(name));
+import { getTodoList } from './index.js'
 
-    getData.splice(getData.indexOf(getData[num].todoName), 1)
+function removeTodo(name){
+    const projectTitle = document.getElementById('project-title');
+    const getStoreData = getTodoList();
 
-    localStorage.setItem(name,JSON.stringify(getData))
+    getStoreData.forEach(project => {
+        if(project.Title===projectTitle.textContent){
+            project.Todo.forEach(todo=>{
+                if(todo.name===name){
+                    const spliceIndex = project.Todo.indexOf(todo);
+                    project.Todo.splice(spliceIndex, 1);
+                    localStorage.setItem('Todo', JSON.stringify(getStoreData));
+                    return;
+                }
+            })
+        }
+    });
+    
 }
 
 export default removeTodo;

@@ -6,6 +6,7 @@ import addProjectButton from "./domModule.js";
 
 const displayAllProjects = document.querySelector('#all-projects');
 const mainDisplay = document.querySelector('#main-display');
+const removeButton = document.querySelectorAll('.remove-todo');
 
 function createTod() {
     const projArray = [];

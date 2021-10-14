@@ -1,3 +1,5 @@
+import removeTodo from "./removeToDo.js";
+
 function displayTitles(todoProjects) {
     const projectsDisplayed = document.querySelector('.projects-ul');
     const array1 = todoProjects;
@@ -18,12 +20,11 @@ function displayTitles(todoProjects) {
     })
 }
 
-function displayTodos(todo, project){
-    console.log(todo[0].name)
+function displayTodos(todo, project) {
     const projectClass = project.replace(/\W+/g, '-').toLowerCase();
     const domDisplay = document.querySelector('#dom-display');
 
-    todo.forEach(todoProject=>{
+    todo.forEach(todoProject => {
         const projectDiv = document.createElement('div');
 
         const p1 = document.createElement('p');
@@ -41,10 +42,20 @@ function displayTodos(todo, project){
         const p5 = document.createElement('p');
         p5.textContent = todoProject.priority;
         projectDiv.appendChild(p5);
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.setAttribute('class', 'remove-todo');
+        projectDiv.appendChild(removeBtn);
 
         projectDiv.setAttribute('class', 'hide-todo');
         domDisplay.appendChild(projectDiv);
-        projectDiv.classList.add(projectClass);
+        projectDiv.classList.add(projectClass, 'todo-class');
+
+        removeBtn.addEventListener('click', (e) => {
+            e.target.parentElement.remove();
+            removeTodo(e.target.parentElement.firstChild.textContent);
+            // console.log(e.target.parentElement.firstChild.textContent)
+        })
     })
 }
 

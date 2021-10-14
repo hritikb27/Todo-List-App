@@ -66,3 +66,27 @@ li{
 .onclick-projects{
     cursor: pointer;
 }
+
+.remove-todo{
+    background-color: red;
+    text-align: center;
+}
+
+#dom-display{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.todo-class{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blanchedalmond;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 8vw;
+}
