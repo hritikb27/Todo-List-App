@@ -46,14 +46,6 @@ function addProjectButton(){
             }
         })
     })
-
-    function showTodos(){
-        const getStoreData = JSON.parse(localStorage.getItem('Todo'));
-        getStoreData.forEach(project => {
-            
-        });
-    }
-
 }
 
 export default addProjectButton;

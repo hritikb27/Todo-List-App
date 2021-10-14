@@ -1,4 +1,4 @@
-function displayProjects(todoProjects) {
+function displayTitles(todoProjects) {
     const projectsDisplayed = document.querySelector('.projects-ul');
     const array1 = todoProjects;
     const domDisplay = document.querySelector('#dom-display');
@@ -14,35 +14,40 @@ function displayProjects(todoProjects) {
             newUL.appendChild(newLI);
             projectsUl.appendChild(newUL);
         }
-        const projectClass = project.Title.replace(/\W+/g, '-').toLowerCase();
-
-        if(!domDisplay.innerHTML.includes('div')){
-            for (let i = 0; i < project.Todo.length; i++) {
-                const projectDiv = document.createElement('div');
-    
-                const p1 = document.createElement('p');
-                p1.textContent = project.Todo[i].name;
-                projectDiv.appendChild(p1)
-                const p2 = document.createElement('p');
-                p2.textContent = project.Todo[i].description;
-                projectDiv.appendChild(p2);
-                const p3 = document.createElement('p');
-                p3.textContent = project.Todo[i].dueDate;
-                projectDiv.appendChild(p3);
-                const p4 = document.createElement('p');
-                p4.textContent = project.Todo[i].isComplete;
-                projectDiv.appendChild(p4);
-                const p5 = document.createElement('p');
-                p5.textContent = project.Todo[i].priority;
-                projectDiv.appendChild(p5);
-    
-                projectDiv.setAttribute('class', 'hide-todo');
-                domDisplay.appendChild(projectDiv);
-                projectDiv.classList.add(projectClass);
-            }
-        }
 
     })
 }
 
-export default displayProjects;
+function displayTodos(todo, project){
+    console.log(todo[0].name)
+    const projectClass = project.replace(/\W+/g, '-').toLowerCase();
+    const domDisplay = document.querySelector('#dom-display');
+
+    todo.forEach(todoProject=>{
+        const projectDiv = document.createElement('div');
+
+        const p1 = document.createElement('p');
+        p1.textContent = todoProject.name;
+        projectDiv.appendChild(p1)
+        const p2 = document.createElement('p');
+        p2.textContent = todoProject.description;
+        projectDiv.appendChild(p2);
+        const p3 = document.createElement('p');
+        p3.textContent = todoProject.dueDate;
+        projectDiv.appendChild(p3);
+        const p4 = document.createElement('p');
+        p4.textContent = todoProject.isComplete;
+        projectDiv.appendChild(p4);
+        const p5 = document.createElement('p');
+        p5.textContent = todoProject.priority;
+        projectDiv.appendChild(p5);
+
+        projectDiv.setAttribute('class', 'hide-todo');
+        domDisplay.appendChild(projectDiv);
+        projectDiv.classList.add(projectClass);
+    })
+}
+
+
+
+export { displayTitles, displayTodos };
