@@ -15,4 +15,4 @@ function createTodoList(name, description, dueDate, isComplete, priority){
     return todoObject;
 }
 
-export {createTodoList, storeTodos};
+export { createTodoList, storeTodos };

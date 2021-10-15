@@ -21,7 +21,7 @@ function addProjectButton() {
     const todoForm = document.querySelector('#todo-form');
 
     addProjectBtn.addEventListener('click', () => {
-        addProjectDisplay.style.display = 'block';
+        addProjectDisplay.style.display = addProjectDisplay.style.display === 'block' ? 'none' : 'block';
     });
 
     projectAddBtn.addEventListener('click', () => {
@@ -45,7 +45,7 @@ function addProjectButton() {
     })
 
     addTodoBtn.addEventListener('click', () => {
-        addTodoDisplay.style.display = 'block';
+        addTodoDisplay.style.display = addTodoDisplay.style.display === 'block' ? 'none' : 'block';
     })
 
     todoAddBtn.addEventListener('click', (e) => {
